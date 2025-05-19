@@ -1,0 +1,275 @@
+/* Modern form styling */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    color: white;
+    transition: background-position 0.3s ease;
+}
+
+.message {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(2, 199, 224, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.messageme {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.messageme span {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.back-button {
+    text-decoration: none;
+    color: white;
+    padding: 8px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.back-button i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+    background: white;
+    color: #00a3ff;
+    border-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.back-button:hover i {
+    transform: translateX(-3px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 100px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contactme {
+    color: #00ffff;
+    margin-bottom: 30px;
+    font-size: 32px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00ffff;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    outline: none;
+}
+
+.column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+button[type="submit"] {
+    background: linear-gradient(45deg, #00ff88, #00a3ff);
+    color: white;
+}
+
+button[type="reset"] {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Validation styling */
+.input-wrapper.valid::after {
+    content: '✓';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00ff88;
+}
+
+.input-wrapper.invalid::after {
+    content: '✗';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff3366;
+}
+
+.input-wrapper.invalid input,
+.input-wrapper.invalid textarea {
+    border-color: #ff3366;
+}
+
+/* Notification styling */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(45deg, #00ff88, #00a3ff);
+}
+
+.notification.error {
+    background: linear-gradient(45deg, #ff3366, #ff6b6b);
+}
+
+.notification.info {
+    background: linear-gradient(45deg, #00a3ff, #6b7fff);
+}
+
+/* Loading animation */
+.loader {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+        margin: 80px auto;
+    }
+
+    .column {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
