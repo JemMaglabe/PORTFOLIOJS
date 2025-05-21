@@ -1743,7 +1743,7 @@ footer p {
 }
 
 .video-contest-card .card-image {
-    width: 100%;
+    width: 50%;
     height: 220px;
     overflow: hidden;
     position: relative;
