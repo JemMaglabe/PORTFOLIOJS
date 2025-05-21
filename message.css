@@ -192,8 +192,8 @@ button:active {
     top: 50%;
     transform: translateY(-50%);
     color: #00ff88;
-}
-
+    }
+    
 .input-wrapper.invalid::after {
     content: '✗';
     position: absolute;
@@ -201,12 +201,12 @@ button:active {
     top: 50%;
     transform: translateY(-50%);
     color: #ff3366;
-}
+    }
 
 .input-wrapper.invalid input,
 .input-wrapper.invalid textarea {
     border-color: #ff3366;
-}
+    }
 
 /* Notification styling */
 .notification {
